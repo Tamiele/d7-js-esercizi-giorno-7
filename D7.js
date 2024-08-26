@@ -2,6 +2,13 @@
   Scrivi una funzione per concatenare due stringhe ricevute come parametri, selezionando solamente i primi 2 caratteri della
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
+function concatStr(str1, str2) {
+  const stringa1 = str1.slice(0, 2);
+  const stringa2 = str2.slice(-3);
+  const stringa = (stringa1 + stringa2).toUpperCase();
+  return stringa;
+}
+console.log(concatStr("ciao", "mamma"));
 
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
@@ -189,6 +196,7 @@ const movies = [
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
+function year(anno) {}
 
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
