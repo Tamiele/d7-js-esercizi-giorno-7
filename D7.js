@@ -58,9 +58,10 @@ function increment(numeri, n) {
   numeri.forEach((num) => {                         ESEMPIO CON IL forEach
     multiNum.push(num * n);
   });
-  return multiNum;
+  return multiNum;                                 // va inserito il return altrimenti non vedo il risultato
 }
 console.log(increment(numeri, 2));*/
+
 numeri = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 function increment(numeri, n) {
   const multiNum = numeri.map((num) => num * n);
@@ -72,10 +73,37 @@ console.log(increment(numeri, 2));
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
+nomi = ["stefano", "giacomo", "forza forza forza"];
+function lunghezza(array) {
+  const lengStringhe = array.map((parole) => parole.length);
+  return lengStringhe;
+}
+console.log(lunghezza(nomi));
 
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+numericArray = [];
+/*function dispari(array) {
+  for (i = 1; i < 100; i++) {
+    if (i % 2 !== 0) {
+      numericArray.push(i);                      esercizio con il for
+    }
+  }
+  return numericArray;
+}
+console.log(dispari(numericArray));*/
+
+function dispari(array) {
+  numericArray = [];
+  array.forEach((num) => {
+    if (num % 2 !== 0) {
+      numericArray.push();
+    }
+  });
+  return numericArray;
+}
+console.log(dispari(numericArray));
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -196,19 +224,44 @@ const movies = [
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
-function year(anno) {}
+function year(array) {
+  let testYear = { Year: 2050 }; //
+  array.forEach((movie) => {
+    //
+    let yearFilm = parseInt(movie.Year); //
+    if (yearFilm < testYear.Year) {
+      //
+      testYear = movie;
+    }
+  });
+  return testYear;
+}
+
+console.log(year(movies));
 
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
-
+function numeroFilm(array) {
+  //array.length serve a ciclare l'intero array e quuindi si ottiene il numero degli oggetti nell'array.
+  return array.length;
+}
+console.log(numeroFilm(movies));
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
+function titoliFilm(array) {
+  return array.map((movie) => movie.Title);
+}
+console.log(titoliFilm(movies));
 
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
+function yearFilm(array) {
+  return array.filter((movie) => parseInt(movie.Year) > 1999); //con il metodo filter ciclo l'array-paseInt mi va aprendere i valori numerici,
+} // movie.Year mi serve per andare a prendere la posizione nell'array in questo caso year.
+console.log(yearFilm(movies));
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
